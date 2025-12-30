@@ -1,0 +1,68 @@
+                                                  // ROCK PAPER AND SISSOR  
+#include<stdio.h>
+#include<time.h>
+#include<stdlib.h>
+/* 
+   for paper choose p
+   for stone choose s
+   for sissor choose x
+   */
+int game_conditions(char u , char pc){
+    // condition when you both choose the same 
+    // then a draw will happen
+    if(u == pc)
+        return -1; // draw
+        /* condition when you chooses paper 
+           and the computer chooses sissor */
+           if(u=='p' && pc=='x')
+           return 0; // you loose 
+           // when you choose the sissor 
+           // and the pc chooses paper
+           else if( u=='x' && pc=='p')
+           return 1; // won
+           /* condition when you chooses stone 
+              and the pc chooses sissor */
+              if(u=='s' && pc=='x')
+              return 1; // won
+              else if(u=='x' && pc=='s')
+              return 0; // loose
+              /* condition when you chooses stone 
+              and the pc chooses paper */
+              if(u=='s' && pc=='p')
+              return 0; // loose
+              else if(u=='x' && pc=='s')
+              return 1; // win
+              }
+
+int main() {
+    printf("\n\n\n\n\t\t\t\t\t\tEnter s for STONE, p for PAPER and x for SCISSOR :\n\t\t\t\t\t\t\t\t\t");
+    int number_random;
+    char u,pc,result;
+    // choose every time a random number
+    srand(time(NULL));
+    // making the the number_random less than 100
+    number_random = rand() % 100;
+    // roughly dividing the 3 sets of numbers in 3 parts of 100
+    if(number_random<33)
+    pc='s';
+    else if(number_random>33 && number_random<67)
+    pc='p';
+    else
+    pc='x';
+    // input from user
+    scanf("%c",&u);
+    if(u=='s' || u=='p' || u=='x'){
+    // calling the functions 
+    result = game_conditions(u,pc);
+     if (result == -1)
+        printf("\n\n\t\t\t\t\t\t\t\tGame Draw!\n");
+    else if (result == 1)
+        printf("\n\n\t\t\t\t\t\t\tWow! You won the game!\n");
+    else 
+    printf("\n\t\t\t\t\t\t\tOoops! You loose the game\n");
+        printf("\t\t\t\t\t\tYou choose : %c and Computer choose : %c\n",u,pc); 
+    }
+    else 
+    printf("\n\n\t\t\t\t\t\t\tPLS! Enter A Valid Input");
+    return 0;
+}
