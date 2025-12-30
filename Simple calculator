@@ -1,0 +1,19 @@
+#include<stdio.h>
+#include<conio.h>
+int main(){
+    float n,m;
+    int s;
+    printf("Enter the first number : ");
+    scanf("%f",&n);
+    printf("enter the second number : ");
+    scanf("%f",&m);
+    printf("Addition : %f + %f =%f\n",n,m,n+m);
+            printf("Substraction : %f - %f =%f\n",n,m,n-m);
+                printf("Multiplication : %f * %f =%f\n",n,m,n*m);
+                    printf("Division : %f / %f =%f\n",n,m,n/m);
+    printf("\nDo you want to perform another calculation ? ");
+    scanf("%d",&s);
+    if(s==1) main(); // calling main
+    else printf("EXITING CALCULATOR !............");
+    return 0;
+}
